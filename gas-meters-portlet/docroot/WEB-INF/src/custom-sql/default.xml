@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+    <sql id="com.gasmeters.portlet.service.persistence.InstalledFinder.distinctDate">
+		select *
+			from (
+			   select *,
+			          row_number() over (partition by date_ ) as row_number
+			   from gasmeters_installed
+			   ) as rows
+			where row_number = 1
+    </sql>
+
+    <sql id="com.gasmeters.portlet.service.persistence.InstalledFinder.distinctDateInRange">
+        select *
+			from (
+			   select *,
+			          row_number() over (partition by date_ ) as row_number
+			   from gasmeters_installed
+			   ) as rows
+			where row_number = 1 and date_ between to_timestamp(?, 'YYYYMMDD') and to_timestamp(?, 'YYYYMMDD')
+    </sql>
+</custom-sql>

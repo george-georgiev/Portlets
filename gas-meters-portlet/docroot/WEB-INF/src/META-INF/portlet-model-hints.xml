@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.gasmeters.portlet.model.Available">
+		<field name="serialNums" type="long" />
+		<field name="groupID" type="int" />
+	</model>
+	<model name="com.gasmeters.portlet.model.Installed">
+		<field name="serialNums" type="long" />
+		<field name="date" type="Date">
+			<hint name="year-range-future">false</hint>
+			<hint name="show-time">false</hint>
+		</field>
+		<field name="currInd" type="long" />
+		<field name="groupID" type="int" />
+	</model>
+</model-hints>

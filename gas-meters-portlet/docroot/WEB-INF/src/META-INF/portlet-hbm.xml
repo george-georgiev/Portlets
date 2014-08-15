@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.gasmeters.portlet.model.Available" />
+	<import class="com.gasmeters.portlet.model.Installed" />
+	<class name="com.gasmeters.portlet.model.impl.AvailableImpl" table="GasMeters_Available">
+		<cache usage="read-write" />
+		<id name="serialNums" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.gasmeters.portlet.model.impl.InstalledImpl" table="GasMeters_Installed">
+		<cache usage="read-write" />
+		<id name="serialNums" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="date" type="org.hibernate.type.TimestampType" column="date_" />
+		<property name="currInd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+</hibernate-mapping>

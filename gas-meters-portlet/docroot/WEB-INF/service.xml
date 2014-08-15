@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.gasmeters.portlet">
+	<author>George</author>
+	<namespace>GasMeters</namespace>
+    <entity name="Available" local-service="true">
+        <column name="serialNums" type="long" primary="true"></column>
+        <column name="groupID" type="int"></column>
+        <order>
+            <order-column order-by="asc" name="serialNums"></order-column>
+        </order>
+        <finder name="groupID" return-type="Collection">
+            <finder-column name="groupID"></finder-column>
+        </finder>
+    </entity>
+    <entity name="Installed" local-service="true">
+        <column name="serialNums" type="long" primary="true"></column>
+        <column name="date" type="Date"></column>
+        <column name="currInd" type="long"></column>
+        <column name="groupID" type="int"></column>
+        <order>
+            <order-column name="date" order-by="asc"></order-column>
+        </order>
+        <finder name="groupID" return-type="Collection">
+            <finder-column name="groupID"></finder-column>
+        </finder>
+        <finder name="date" return-type="Collection">
+            <finder-column name="date"></finder-column>
+        </finder>
+    </entity>
+
+	
+</service-builder>
